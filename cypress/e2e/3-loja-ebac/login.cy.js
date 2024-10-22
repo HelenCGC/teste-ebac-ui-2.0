@@ -6,7 +6,9 @@ describe("Funcionalidade: Login", () => {
     cy.visit("minha-conta");
   });
 
-  //afterEach(() => {    cy.screenshot();  });
+  afterEach(() => {
+    cy.screenshot();
+  });
 
   it("Deve faze login com sucesso", () => {
     cy.get("#username").type("helen.teste@teste.com");
@@ -50,7 +52,7 @@ describe("Funcionalidade: Login", () => {
       "Olá, helen.teste (não é helen.teste? Sair)"
     );
   });
-  it.only("Deve fazer login com sucesso - Usando Fixture", () => {
+  it("Deve fazer login com sucesso - Usando Fixture", () => {
     cy.fixture("perfil").then((dados) => {
       cy.get("#username").type(dados.usuario, { log: false });
       cy.get("#password").type(dados.senha, { log: false });
@@ -61,5 +63,12 @@ describe("Funcionalidade: Login", () => {
         "Olá, helen.teste (não é helen.teste? Sair)"
       );
     });
+  });
+  it.only("Deve fazer login com sucesso - usando Comandos customizados", () => {
+    cy.login("helen.teste@teste.com", "@teste123");
+    cy.get(".woocommerce-MyAccount-content > :nth-child(2)").should(
+      "contain",
+      "Olá, helen.teste (não é helen.teste? Sair)"
+    );
   });
 });
