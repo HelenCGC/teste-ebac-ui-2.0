@@ -17,7 +17,7 @@ describe("Funcionalidade: Login", () => {
 
     cy.get(".woocommerce-MyAccount-content > :nth-child(2)").should(
       "contain",
-      "Olá, helen.teste (não é helen.teste? Sair)"
+      "Olá, helen.qa (não é helen.qa? Sair)"
     );
   });
 
@@ -49,7 +49,7 @@ describe("Funcionalidade: Login", () => {
 
     cy.get(".woocommerce-MyAccount-content > :nth-child(2)").should(
       "contain",
-      "Olá, helen.teste (não é helen.teste? Sair)"
+      "Olá, helen.qa (não é helen.qa? Sair)"
     );
   });
   it("Deve fazer login com sucesso - Usando Fixture", () => {
@@ -60,7 +60,7 @@ describe("Funcionalidade: Login", () => {
 
       cy.get(".woocommerce-MyAccount-content > :nth-child(2)").should(
         "contain",
-        "Olá, helen.teste (não é helen.teste? Sair)"
+        "Olá, helen.qa (não é helen.qa? Sair)"
       );
     });
   });
@@ -68,7 +68,7 @@ describe("Funcionalidade: Login", () => {
     cy.login("helen.teste@teste.com", "@teste123");
     cy.get(".woocommerce-MyAccount-content > :nth-child(2)").should(
       "contain",
-      "Olá, helen.teste (não é helen.teste? Sair)"
+      "Olá, helen.qa (não é helen.qa? Sair)"
     );
   });
 });
